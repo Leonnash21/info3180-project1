@@ -37,7 +37,6 @@ def about():
 @app.route('/profile/', methods = ['GET', 'POST'])
 def add_profile():
     form = ProfileForm()
-    # iURL = url_for('app', filename='static/images/')
     
     if request.method == 'POST':
         
@@ -51,9 +50,9 @@ def add_profile():
        
         file = request.files['image']
         image = secure_filename(file.filename)
-        file.save(os.path.join("images", image))### querry why this works##
+        file.save(os.path.join("simages", image))
         password = generate_password_hash(request.form['password'])
-        datejoined= datetime.now().strftime("%a, %d %b %Y")
+        datejoined= datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         
         
         profile = UserProfile (id, username, firstname, lastname, password, age, biography, sex, image, datejoined)
@@ -84,8 +83,7 @@ def list_profiles():
 @app.route('/profile/<int:id>')
 def view_profile(id):
     users = UserProfile.query.filter_by(id=id).first()
-    # iURL = url_for("os", filename='images/' +users.image)
-    iURL = url_for('static', filename='images/' +users.image) ##query why this works but not the prvious##
+    iURL = url_for('static', filename='images/' +users.image)
     
     
     if request.headers['Content-Type']=='application/json' or request.method == "POST":

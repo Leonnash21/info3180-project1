@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block main %}
+<!Doctype html>
+<html>
+  <head>
+    <title>Info3180-Project 1</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+    
+  </head>
+  <br>
+  
+
+        <header>
+             <h1 class="page-header">My Profile</h1>
+        </header>
+    
+  <body>
+      
+    <div id =' profilePic' style="margin-top:10px;">
+    <img src="{{userp['image']}}" width="260" height="220">
+    
+     
+    <table id ="profileTableID">
+      <tbody>
+        
+        <tr>
+           <td>
+              <div id ='name'>
+              <h1> {{userp['firstname']}} {{userp['lastname']}}</h1>
+              </div>
+          </td>
+        </tr>
+        
+    
+        <tr>
+          <td>
+          <div id ='timeinfo'>
+            <br>
+          Date Joined : {{userp['date joined']}} 
+          </div>
+          </td>
+        </tr>
+        
+
+        <tr>
+            <td>
+              <div class ='profile'> 
+              <br>
+              <br>
+              <p> Username:{{userp['username']}}</p>
+              <p> User ID:{{userp['id']}}</p>
+              <p> Gender:{{userp['gender']}} </p>
+              <p> Age:{{userp['age']}}</p>
+              
+              
+            
+              
+              </div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
+          <div id ='timeinfo'>
+            <br>
+          <p> Biography:{{userp['biography']}} </p> 
+          </div>
+          </td>
+        </tr>
+        <tbody>
+    </table>
+    </div>
+         
+   
+    
+   
+  </body> 
+      
+  
+
+
+ 
+      
+  
+
+</html>
+
+{% endblock %}

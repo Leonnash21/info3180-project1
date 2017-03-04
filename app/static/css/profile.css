@@ -1,0 +1,68 @@
+body{
+  background-color: ff054f;
+  
+}
+
+#profileTableID
+{
+  margin-bottom:10px;
+  margin-top:-220px;
+  margin-left:300px;
+  position:relative;
+  width: 400px;
+  
+  
+  
+  
+}
+.profile{
+      border-collapse: collapse;
+  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
+}
+#timeinfo{
+  border-collapse: collapse;
+  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
+ 
+  }
+
+#profilePic{
+  
+  float:left;
+ 
+  
+  
+  
+}
+
+
+#name{
+  border-collapse: collapse;
+  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
+  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  
+  
+}
+
+#info{
+  background:blue;
+  border:2px black;
+  color: black;
+}
+
+.rotate90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
