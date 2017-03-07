@@ -84,7 +84,7 @@ def list_profiles():
     return render_template('list_profiles.html', users=users)
 
 @app.route('/profile/<int:id>',methods=["POST","GET"])
-@login_required
+# @login_required
 def view_profile(id):
     users = UserProfile.query.filter_by(id=id).first()
     iURL = url_for('static', filename='images/' +users.image) 
