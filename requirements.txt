@@ -13,7 +13,8 @@ Werkzeug
 click
 itsdangerous
 wsgiref
-
+passlib
+bcrypt
 # ----------------------
 # Production Server
 # ----------------------

@@ -1,15 +1,17 @@
 body{
-  background-color: ff054f;
+  background-color: inherit;
   
 }
 
 #profileTableID
 {
   margin-bottom:10px;
-  margin-top:-220px;
-  margin-left:300px;
+  margin-top:-300px;
+  margin-left:280px;
   position:relative;
-  width: 400px;
+  width: 375px;
+  color:#1E90FF;
+  
   
   
   
@@ -17,38 +19,40 @@ body{
 }
 .profile{
       border-collapse: collapse;
-  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  /*background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);*/
+  /*background: linear-gradient(45deg, #49a09d, #5f2c82);*/
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);*/
   
 }
 #timeinfo{
   border-collapse: collapse;
-  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  /*background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);*/
+  /*background: linear-gradient(45deg, #49a09d, #5f2c82);*/
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);*/
+  
   
  
   }
 
 #profilePic{
-  
   float:left;
- 
-  
-  
+  margin-top:10px;
+  background:	#696969;
+  width:750px; 
+  border-radius:25px;
+  border-style:groove;
   
 }
 
 
 #name{
   border-collapse: collapse;
-  background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);
-  background: linear-gradient(45deg, #49a09d, #5f2c82);
+  /*background: -webkit-linear-gradient(45deg, #49a09d, #5f2c82);*/
+  /*background: linear-gradient(45deg, #49a09d, #5f2c82);*/
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);*/
   
   
 }
@@ -57,6 +61,7 @@ body{
   background:blue;
   border:2px black;
   color: black;
+  
 }
 
 .rotate90 {
@@ -65,4 +70,10 @@ body{
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+}
+
+#pic
+{
+  margin-top:6px;
+  margin-left:10px;
 }

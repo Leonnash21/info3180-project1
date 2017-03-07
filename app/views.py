@@ -20,6 +20,7 @@ import random
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
+
 ###
 # Routing for your application.
 ###
@@ -30,6 +31,7 @@ def home():
     return render_template('home.html')
 
 @app.route('/about/')
+@login_required
 def about():
     """Render the website's about page."""
     return render_template('about.html')
@@ -51,16 +53,16 @@ def add_profile():
        
         file = request.files['image']
         image = secure_filename(file.filename)
-        file.save(os.path.join("images", image))### querry why this works##
+        file.save(os.path.join("app/static/images", image))
         password = generate_password_hash(request.form['password'])
         datejoined= datetime.now().strftime("%a, %d %b %Y")
-        
-        
+
         profile = UserProfile (id, username, firstname, lastname, password, age, biography, sex, image, datejoined)
         db.session.add(profile)
         db.session.commit()
         
         flash ('User ' + username + ' sucessfully added!', 'success')
+        flash ('Please proceed to "Login"', 'success')
         return redirect (url_for('add_profile'))
    
     
@@ -81,13 +83,12 @@ def list_profiles():
                 
     return render_template('list_profiles.html', users=users)
 
-@app.route('/profile/<int:id>')
+@app.route('/profile/<int:id>',methods=["POST","GET"])
+@login_required
 def view_profile(id):
     users = UserProfile.query.filter_by(id=id).first()
-    # iURL = url_for("os", filename='images/' +users.image)
-    iURL = url_for('static', filename='images/' +users.image) ##query why this works but not the prvious##
-    
-    
+    iURL = url_for('static', filename='images/' +users.image) 
+
     if request.headers['Content-Type']=='application/json' or request.method == "POST":
         return jsonify(id=users.id, username=users.username, image=users.image, gender=users.sex, age=users.age, datejoined=users.datejoined)
         
@@ -97,9 +98,7 @@ def view_profile(id):
         return render_template('view_profile.html', userp=userp)
         
         
-    # return render_template('view_profile.html',profile=profiles)    
     
-
 @app.route('/securepage/')
 @login_required
 def securepage():
@@ -118,25 +117,21 @@ def login():
     if request.method == "POST" and form.validate_on_submit():
         
         
-        # change this to actually validate the entire form submission
-        # and not just one field
         username = form.username.data
         password = form.password.data
-        user = UserProfile.query.filter_by(username=username,password=password).first()
-            # Get the username and password values from the form.
-
-            # using your model, query database for a user based on the username
-            # and password submitted
-            # store the result of that query to a `user` variable so it can be
-            # passed to the login_user() method.
-
-            # get user id, load into session
-        if user is not None: 
-            login_user(user)
-
+        remember_me = form.password.data
+        
+        user = UserProfile.query.filter_by(username=username).first()
+        
+        
+        if user is not None:
+            if check_password_hash(user.password, password):
+                
+                login_user(user, remember = remember_me)
+                
             # remember to flash a message to the user
             flash ('Logged in successfully.', 'success')
-            return redirect(url_for("securepage")) # they should be redirected to a secure-page route instead
+            return redirect(url_for("securepage")) 
         else:
             flash ('Username or Password incorrect','danger')
     flash_errors(form)

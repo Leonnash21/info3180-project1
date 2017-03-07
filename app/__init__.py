@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://proj1:password123@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True # added just to suppress a warning
 app.config['DEFAULT_ADMIN'] = 'Admin <admin@example.com>'
 
-CSRFProtect(app)
+# CSRFProtect(app)
 db = SQLAlchemy(app)
 
 # Flask-Login login manager
