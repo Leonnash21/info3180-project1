@@ -6,7 +6,7 @@ body{
 #profileTableID
 {
   margin-bottom:10px;
-  margin-top:-300px;
+  margin-top:-330px;
   margin-left:280px;
   position:relative;
   width: 375px;
@@ -43,6 +43,10 @@ body{
   width:750px; 
   border-radius:25px;
   border-style:groove;
+  font-family: cursive;
+  font-weight: 700;
+  font-size: medium;
+  margin-left: 200px;
   
 }
 
