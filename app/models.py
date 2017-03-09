@@ -1,7 +1,7 @@
 from . import db
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
-from sqlalchemy.schema import ForeignKey
+
 
 
 class UserProfile(db.Model):
