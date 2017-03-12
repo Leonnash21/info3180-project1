@@ -12,6 +12,7 @@ from forms import LoginForm, ProfileForm
 from models import UserProfile
 import os
 import math
+from app import db
 from werkzeug import secure_filename
 from datetime import date, datetime
 from time import strftime
