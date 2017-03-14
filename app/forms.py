@@ -14,10 +14,11 @@ class LoginForm(FlaskForm):
 
 
 class ProfileForm(Form):
-    username = TextField('Username', validators=[Required()])
-    password = PasswordField('Password', validators=[Required(), EqualTo('confirm', message='Passwords must match')])
+    
+    
     firstname = TextField('Firstname', validators=[Required()])
     lastname = TextField('Lastname', validators=[Required()])
+    password = PasswordField('Password', validators=[Required(), EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Repeat Password')
     age = IntegerField('Age', validators=[Required()])
     sex = SelectField('Sex', choices=[('Male', 'Male'), ('Female','Female')], validators=[Required()])

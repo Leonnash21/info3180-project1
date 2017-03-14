@@ -41,9 +41,10 @@ def add_profile():
     form = ProfileForm()
     # iURL = url_for('app', filename='static/images/')
     
-    if request.method == 'POST':
+    if request.method == 'POST' and form.validate_on_submit:
         
-        username = request.form ['username']
+        
+        username =(request.form['firstname']) + str(random.randint(10,1000))
         id = random.randint(1000000, 1099999)
         firstname = request.form['firstname']
         lastname = request.form['lastname']
@@ -64,6 +65,7 @@ def add_profile():
         flash ('User ' + username + ' sucessfully added!', 'success')
         flash ('Please proceed to "Login"', 'success')
         return redirect (url_for('add_profile'))
+        
    
     
     flash_errors(form)        
@@ -106,7 +108,7 @@ def securepage():
     return render_template('securepage.html')
     
     
-@app.route("/login/", methods=["GET", "POST"])
+@app.route('/login/', methods=["GET", "POST"])
 def login():
     
     if current_user is not None and current_user.is_authenticated:
